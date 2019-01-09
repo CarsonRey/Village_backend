@@ -1,0 +1,3 @@
+class FoodItemDonationsController < ApplicationController
+
+end
