@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :user_hours
+  resources :hours
+  resources :hours_of_operations
   resources :roles
   resources :food_item_donations
   resources :food_item_deliveries
