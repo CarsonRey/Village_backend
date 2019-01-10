@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Role.destroy.all
+User.destroy.all
+
+  roles = ["Donator", "Receiver", "Deliverer"]
+
+  roles.each do |role|
+    Role.create(name: "#{role}")
+  end
+
+  restaurants = ["Starbucks", "Pizza Hut", "Le Bernardin", "Pret A Manger", "Panera Bread", "Cosme"]
+
+  restaurants.each do |restaurant|
+    email = restaurant.split(" ").join("_")
+    User.create(name: "#{restaurant}", email: "#{email}@village.com", password: "bluecheese", role: Role.find_by(name: "Donator"))
+  end
+
+  shelters = ["HRA Men's Shelter","New York City Rescue Mission", "Covenant House New York", "Nazareth Housing"]
+
+  shelters.each do |shelter|
+    email = shelter.split(" ").join("_")
+    User.create(name: "#{shelter}", email: "#{email}@village.com", password: "bluecheese", role: Role.find_by(name: "Receiver"))
+  end
+
+  deliverers = ["Carson Rey", "Olivia Kasten", "Gregy Wedgy" , "Ry Ry"]
+
+  deliverers.each do |deliverer|
+    email = deliverer.split(" ").join("_")
+    User.create(name: "#{deliverer}", email: "#{email}@village.com", password: "bluecheese", role: Role.find_by(name: "Deliverer"))
+  end

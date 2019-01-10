@@ -1,3 +1,3 @@
 class HourSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :day, :time_range
 end

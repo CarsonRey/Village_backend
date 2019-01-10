@@ -1,3 +1,3 @@
 class FoodItemDonationSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :food_item_id, :donation_id
 end
