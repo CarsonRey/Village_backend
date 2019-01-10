@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   resources :user_hours
   resources :hours
   resources :hours_of_operations
