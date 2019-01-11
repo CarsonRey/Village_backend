@@ -1,7 +1,7 @@
-Role.destroy.all
-User.destroy.all
+# Role.destroy.all
+# User.destroy.all
 
-  roles = ["Donator", "Receiver", "Deliverer"]
+  roles = ["Donator", "Deliverer", "Receiver"]
 
   roles.each do |role|
     Role.create(name: "#{role}")

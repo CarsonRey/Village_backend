@@ -6,17 +6,27 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-     byebug
-   @user = User.create!(user_params)
-
-     if @user.valid?
-
+     # byebug
+   @user = User.new(user_params)
+   # @user.role_id = determineRoleId(@user)
+     if @user.save
        token = JWT.encode({user_id: @user.id}, 'SECRET')
        render json: {user: @user, jwt: token}
      else
        render json: {error: "WRONG"}, status: 422
      end
   end
+
+  # def determineRoleId(params)
+  #   byebug
+  #   if params[:role_id] == "Food Donator"
+  #     Role.find_by(name: "Food Donator")
+  #   elsif params[:role_id] == "Food Deliverer"
+  #     Role.find_by(name: "Food Deliverer")
+  #   elsif params[:role_id] == "Food Receiver"
+  #     Role.find_by(name: "Food Receiver")
+  #   end
+  # end
 
 
   def show
