@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_173128) do
+ActiveRecord::Schema.define(version: 2019_01_14_185204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_173128) do
   create_table "food_items", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
-    t.datetime "date_made"
-    t.datetime "expiration_date"
+    t.string "date_made"
+    t.string "expiration_date"
     t.boolean "is_packaged"
     t.string "notes"
     t.datetime "created_at", null: false

@@ -1,8 +1,9 @@
 class DonationSerializer < ActiveModel::Serializer
-  attributes :id, :request_id, :delivery_id
-  has_many :food_items
+  
+  attributes :id, :request_id, :delivery_id, :food_items
   belongs_to :giver
   belongs_to :receiver
+
 end
 
 # when a donator submits/schedules a donation, we make a post request to the donations controller

@@ -6,6 +6,7 @@ class Api::V1::FoodItemsController < ApplicationController
   end
 
   def create
+    byebug
     @food_item = FoodItem.new(food_item_params)
     if @food_item.save
       render json: @food_item
@@ -17,4 +18,5 @@ class Api::V1::FoodItemsController < ApplicationController
   def food_item_params
     params.require(:food_item).permit(:name, :quantity, :date_made, :expiration_date, :is_packaged, :notes)
   end
+  
 end
