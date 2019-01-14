@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_232843) do
+ActiveRecord::Schema.define(version: 2019_01_13_220144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,13 +32,15 @@ ActiveRecord::Schema.define(version: 2019_01_12_232843) do
   end
 
   create_table "donations", force: :cascade do |t|
-    t.bigint "giver_id_id"
-    t.bigint "receiver_id_id"
+    t.bigint "giver_id"
+    t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "request_id"
-    t.index ["giver_id_id"], name: "index_donations_on_giver_id_id"
-    t.index ["receiver_id_id"], name: "index_donations_on_receiver_id_id"
+    t.bigint "delivery_id"
+    t.index ["delivery_id"], name: "index_donations_on_delivery_id"
+    t.index ["giver_id"], name: "index_donations_on_giver_id"
+    t.index ["receiver_id"], name: "index_donations_on_receiver_id"
     t.index ["request_id"], name: "index_donations_on_request_id"
   end
 
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_232843) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "donations", "deliveries"
   add_foreign_key "donations", "requests"
   add_foreign_key "food_item_donations", "donations"
   add_foreign_key "food_item_donations", "food_items"

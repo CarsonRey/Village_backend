@@ -7,7 +7,7 @@ class Api::V1::RequestsController < ApplicationController
 # user_id: params[:user_id], mouths_to_feed: params[:mouths_to_feed]
 
   def create
-    # byebug
+    byebug
     @request = Request.new(request_params)
     if @request.save
       render json: @request
