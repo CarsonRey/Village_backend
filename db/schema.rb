@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_220144) do
+ActiveRecord::Schema.define(version: 2019_01_14_173128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "deliveries", force: :cascade do |t|
-    t.bigint "giver_id_id"
-    t.bigint "deliverer_id_id"
-    t.bigint "receiver_id_id"
+    t.bigint "giver_id"
+    t.bigint "deliverer_id"
+    t.bigint "receiver_id"
     t.string "start_location"
     t.string "end_location"
     t.datetime "pick_up"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2019_01_13_220144) do
     t.boolean "delivered", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["deliverer_id_id"], name: "index_deliveries_on_deliverer_id_id"
-    t.index ["giver_id_id"], name: "index_deliveries_on_giver_id_id"
-    t.index ["receiver_id_id"], name: "index_deliveries_on_receiver_id_id"
+    t.index ["deliverer_id"], name: "index_deliveries_on_deliverer_id"
+    t.index ["giver_id"], name: "index_deliveries_on_giver_id"
+    t.index ["receiver_id"], name: "index_deliveries_on_receiver_id"
   end
 
   create_table "donations", force: :cascade do |t|

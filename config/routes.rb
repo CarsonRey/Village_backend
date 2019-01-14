@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       resources :hours
       resources :food_item_donations
       post '/login', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
+      post '/picked_up', to: 'deliveries#picked_up'
+      post '/delivery_done', to: 'deliveries#delivery_done'
+
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
