@@ -4,6 +4,5 @@ class DeliverySerializer < ActiveModel::Serializer
   belongs_to :receiver
   belongs_to :giver
   has_one :donation
-  # has_many :food_item_donations, through: :donation
-  # has_many :food_items, through: :food_item_donations
+
 end
