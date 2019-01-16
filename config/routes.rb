@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       resources :food_item_donations
       post '/login', to: 'auth#create'
       get '/current_user', to: 'auth#show'
-      post '/picked_up', to: 'deliveries#picked_up'
-      post '/delivery_done', to: 'deliveries#delivery_done'
+      post '/picked_up/:id', to: 'deliveries#picked_up'
+      post '/delivery_done/:id', to: 'deliveries#delivery_done'
 
     end
   end

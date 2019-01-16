@@ -1,5 +1,5 @@
 class DeliverySerializer < ActiveModel::Serializer
-  attributes :id, :start_location, :end_location, :pick_up, :drop_off, :delivered
+  attributes :id, :start_location, :end_location, :pick_up, :drop_off, :delivered, :created_at
   belongs_to :deliverer
   belongs_to :receiver
   belongs_to :giver
