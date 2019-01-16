@@ -1,2 +1,2 @@
-class RatingsController < ApplicationController
+class Api::V1::RatingsController < ApplicationController
 end

@@ -24,7 +24,7 @@ class Api::V1::DeliveriesController < ApplicationController
 
 
   def delivery_done
-    byebug
+    # byebug
     @delivery = Delivery.find(params[:id])
     if @delivery.update(delivery_params(:drop_off, :delivered))
       render json: @delivery

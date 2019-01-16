@@ -6,13 +6,18 @@ class Api::V1::DonationsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @donation = Donation.new(donation_params)
     if @donation.save
       render json: @donation
     else
       render json: {error: "food item could not be created"}
     end
+  end
+
+  def destroy
+    @donation = Donation.find(params[:id])
+    @donation.destroy
   end
 
   private

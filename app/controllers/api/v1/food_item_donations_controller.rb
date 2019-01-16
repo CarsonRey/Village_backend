@@ -1,4 +1,4 @@
-class FoodItemDonationsController < ApplicationController
+class Api::V1::FoodItemDonationsController < ApplicationController
 
 
   def index
@@ -7,7 +7,7 @@ class FoodItemDonationsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @food_item_donation = FoodItemDonation.new(food_item_donation_params)
     if @food_item_donation.save
       render json: @food_item_donation
