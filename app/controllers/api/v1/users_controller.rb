@@ -17,18 +17,6 @@ class Api::V1::UsersController < ApplicationController
      end
   end
 
-  # def determineRoleId(params)
-  #   byebug
-  #   if params[:role_id] == "Food Donator"
-  #     Role.find_by(name: "Food Donator")
-  #   elsif params[:role_id] == "Food Deliverer"
-  #     Role.find_by(name: "Food Deliverer")
-  #   elsif params[:role_id] == "Food Receiver"
-  #     Role.find_by(name: "Food Receiver")
-  #   end
-  # end
-
-
   def show
     @user = User.find(params[:id])
     render json: @user
@@ -36,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
    def user_params
-     # {name: params[:name], email: params[:email], password: params[:password], role_id: params[:role_id]}
+
      params.require(:user).permit(:name, :email, :password, :role_id)
    end
 end

@@ -7,11 +7,18 @@ class Api::V1::DonationsController < ApplicationController
 
   def create
     # byebug
-    @donation = Donation.new(donation_params)
+    @donation = Donation.new(donation_params(:giver_id, :receiver_id, :request_id))
     if @donation.save
       render json: @donation
     else
       render json: {error: "food item could not be created"}
+    end
+  end
+
+  def add_to_delivery
+    @donation = Donation.find(params[:id])
+    if @donation.update(donation_params(:delivery_id))
+      render json: @donation
     end
   end
 
@@ -22,8 +29,8 @@ class Api::V1::DonationsController < ApplicationController
 
   private
 
-  def donation_params
-    params.require(:donation).permit(:giver_id, :receiver_id, :request_id)
+  def donation_params(*args)
+    params.require(:donation).permit(*args)
   end
 
 end

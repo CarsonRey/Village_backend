@@ -7,12 +7,20 @@ class Api::V1::RequestsController < ApplicationController
 # user_id: params[:user_id], mouths_to_feed: params[:mouths_to_feed]
 
   def create
-    byebug
-    @request = Request.new(request_params)
+    # byebug
+    @request = Request.new(request_params(:user_id, :mouths_to_feed, :taken))
     if @request.save
       render json: @request
     else
       render json: {error: "couldn't make request"}
+    end
+  end
+
+  def request_taken
+    # byebug
+    @request = Request.find(params[:id])
+    if @request.update(request_params(:taken))
+      render json: @request
     end
   end
 
@@ -22,9 +30,9 @@ class Api::V1::RequestsController < ApplicationController
 
   private
 
-  def request_params
-    {user_id: params[:user_id], mouths_to_feed: params[:mouths_to_feed]}
-    # params.require(:request).permit(:user_id, :mouths_to_feed)
+  def request_params(*args)
+    # {user_id: params[:user_id], mouths_to_feed: params[:mouths_to_feed]}
+    params.require(:request).permit(*args)
   end
 
 end

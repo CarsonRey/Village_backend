@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get '/current_user', to: 'auth#show'
       post '/picked_up/:id', to: 'deliveries#picked_up'
       post '/delivery_done/:id', to: 'deliveries#delivery_done'
+      post '/request_taken/:id', to: 'requests#request_taken'
+      post '/add_to_delivery/:id', to: 'donations#add_to_delivery'
 
     end
   end
