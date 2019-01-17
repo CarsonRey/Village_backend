@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post '/delivery_done/:id', to: 'deliveries#delivery_done'
       post '/request_taken/:id', to: 'requests#request_taken'
       post '/add_to_delivery/:id', to: 'donations#add_to_delivery'
+      post '/rated/:id', to: 'deliveries#rated'
 
     end
   end
