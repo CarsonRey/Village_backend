@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_184305) do
+ActiveRecord::Schema.define(version: 2019_01_17_190135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,11 +74,18 @@ ActiveRecord::Schema.define(version: 2019_01_17_184305) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.bigint "user_id"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_ratings_on_user_id"
+    t.string "notes"
+    t.bigint "giver_id"
+    t.bigint "deliverer_id"
+    t.bigint "receiver_id"
+    t.bigint "delivery_id"
+    t.index ["deliverer_id"], name: "index_ratings_on_deliverer_id"
+    t.index ["delivery_id"], name: "index_ratings_on_delivery_id"
+    t.index ["giver_id"], name: "index_ratings_on_giver_id"
+    t.index ["receiver_id"], name: "index_ratings_on_receiver_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -119,7 +126,6 @@ ActiveRecord::Schema.define(version: 2019_01_17_184305) do
   add_foreign_key "donations", "requests"
   add_foreign_key "food_item_donations", "donations"
   add_foreign_key "food_item_donations", "food_items"
-  add_foreign_key "ratings", "users"
   add_foreign_key "requests", "users"
   add_foreign_key "user_hours", "hours"
   add_foreign_key "user_hours", "users"
