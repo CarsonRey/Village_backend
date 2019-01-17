@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_210832) do
+ActiveRecord::Schema.define(version: 2019_01_17_184305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_01_15_210832) do
     t.boolean "delivered", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "giver_has_rated", default: false
+    t.boolean "receiver_has_rated", default: false
     t.index ["deliverer_id"], name: "index_deliveries_on_deliverer_id"
     t.index ["giver_id"], name: "index_deliveries_on_giver_id"
     t.index ["receiver_id"], name: "index_deliveries_on_receiver_id"
