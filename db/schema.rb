@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_013952) do
+ActiveRecord::Schema.define(version: 2019_01_18_172112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "deliveries", force: :cascade do |t|
     t.bigint "giver_id"
@@ -67,8 +73,15 @@ ActiveRecord::Schema.define(version: 2019_01_18_013952) do
   end
 
   create_table "hours", force: :cascade do |t|
-    t.string "day"
     t.string "time_range"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "day_id"
+    t.index ["day_id"], name: "index_hours_on_day_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

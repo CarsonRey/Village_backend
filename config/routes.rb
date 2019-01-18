@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   namespace :api do
     namespace :v1 do
       resources :roles
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
       resources :user_hours
       resources :hours
       resources :food_item_donations
+      resources :days
+      resources :locations
       post '/login', to: 'auth#create'
       get '/current_user', to: 'auth#show'
       post '/picked_up/:id', to: 'deliveries#picked_up'
