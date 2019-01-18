@@ -6,12 +6,7 @@ class Api::V1::RatingsController < ApplicationController
   end
 
   def create
-    if rating_params(:giver_id)
-      @rating = Rating.new(rating_params(:rating, :notes, :delivery_id, :deliverer_id, :giver_id ))
-    else
-      @rating = Rating.new(rating_params(:rating, :notes, :delivery_id, :deliverer_id, :receiver_id ))
-    end
-
+    @rating = Rating.new(rating_params(:number, :notes, :delivery_id, :deliverer_id, :rater_id ))
     if @rating.save
       render json: @rating
     else

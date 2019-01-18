@@ -1,7 +1,6 @@
 class Rating < ApplicationRecord
-  belongs_to :giver, :class_name => 'User', optional: true
+  belongs_to :rater, :class_name => 'User'
   belongs_to :deliverer, :class_name => 'User'
-  belongs_to :receiver, :class_name => 'User', optional: true
   belongs_to :delivery
 end
 

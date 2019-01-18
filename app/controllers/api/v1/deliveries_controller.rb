@@ -32,6 +32,7 @@ class Api::V1::DeliveriesController < ApplicationController
   end
 
   def rated
+
     @delivery = Delivery.find(params[:id])
     if delivery_params(:giver_has_rated)
       if @delivery.update(delivery_params(:giver_has_rated))

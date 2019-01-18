@@ -1,3 +1,3 @@
 class RatingSerializer < ActiveModel::Serializer
-  attributes :id, :giver, :deliverer, :receiver, :rating, :notes
+  attributes :id, :deliverer, :rater, :number, :notes
 end
