@@ -1,8 +1,8 @@
 class Api::V1::UserHoursController < ApplicationController
 
   def index
-    @user_user_hours = UserHour.all
-    render json: @user_user_hours
+    @user_hours = UserHour.all
+    render json: @user_hours
   end
 
 

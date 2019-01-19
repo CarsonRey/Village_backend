@@ -1,3 +1,3 @@
 class UserHourSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :hour_id
+  attributes :id, :user, :hour
 end

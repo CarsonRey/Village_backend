@@ -1,12 +1,12 @@
 class Api::V1::AuthController < ApplicationController
 
   def create
-    # byebug
+    #byebug
   @user = User.find_by(email: login_user_params[:email])
 
     if @user && @user.authenticate(login_user_params[:password])
       token = issue_token({user_id: @user.id})
-      render json: {user: @user, jwt: token}
+      render json: {user: @user, hours: @user.hours, jwt: token}
     else
       render json: {error: "WRONG WRONG WRONG"}, status: 400
     end
@@ -14,7 +14,8 @@ class Api::V1::AuthController < ApplicationController
 
   def show
     if current_user
-      render json: {user: current_user}
+      # byebug
+      render json: {user: current_user, hours: current_user.hours}
     else
       render json: {error: "some error"}, status: 422
     end

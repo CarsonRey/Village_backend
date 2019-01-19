@@ -17,6 +17,7 @@ class ApplicationController < ActionController::API
 
   def current_user
     if decode_token
+      # byebug
       User.find(decode_token["user_id"])
     end
   end

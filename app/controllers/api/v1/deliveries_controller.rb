@@ -22,6 +22,11 @@ class Api::V1::DeliveriesController < ApplicationController
     end
   end
 
+  def show
+    @delivery = Delivery.find(params[:id])
+    render json: @delivery
+  end
+
 
   def delivery_done
     # byebug

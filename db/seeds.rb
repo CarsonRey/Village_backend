@@ -9,6 +9,8 @@
 
   restaurants = ["Starbucks", "Pizza Hut", "Le Bernardin", "Pret A Manger", "Panera Bread", "Cosme"]
 
+  # restaurants = {}
+
   restaurants.each do |restaurant|
     email = restaurant.split(" ").join("_")
     User.create(name: "#{restaurant}", email: "#{email}@village.com", password: "bluecheese", role: Role.find_by(name: "Donator"))
