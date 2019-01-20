@@ -6,6 +6,7 @@ class Api::V1::DeliveriesController < ApplicationController
   end
 
   def create
+    
     # :start_location, :end_location
     @delivery = Delivery.new(delivery_params(:giver_id, :receiver_id, :deliverer_id  ))
     if @delivery.save
