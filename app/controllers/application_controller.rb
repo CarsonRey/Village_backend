@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::API
 
+@@secret = Rails.application.credentials.auth_secret
+
   def issue_token(payload)
-    JWT.encode(payload, 'SECRET')
+    JWT.encode(payload, @@secret)
   end
 
   def decode_token
+    
     if get_token
-        JWT.decode(get_token, 'SECRET')[0]
+        JWT.decode(get_token, @@secret)[0]
     end
   end
 

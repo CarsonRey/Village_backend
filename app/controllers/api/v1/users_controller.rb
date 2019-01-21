@@ -6,11 +6,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-     byebug
+     # byebug
    @user = User.new(user_params)
    # @user.role_id = determineRoleId(@user)
+   @secret = Rails.application.credentials.auth_secret
+   
      if @user.save
-       token = JWT.encode({user_id: @user.id}, 'SECRET')
+       token = JWT.encode({user_id: @user.id}, @secret)
        render json: {user: @user, jwt: token}
      else
        render json: {error: "WRONG"}, status: 422
