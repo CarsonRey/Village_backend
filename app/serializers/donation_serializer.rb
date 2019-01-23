@@ -1,6 +1,6 @@
 class DonationSerializer < ActiveModel::Serializer
-  
-  attributes :id, :request_id, :delivery_id, :food_items
+
+  attributes :id, :request_id, :delivery_id, :food_items, :created_at
   belongs_to :giver
   belongs_to :receiver
 
