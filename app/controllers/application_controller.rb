@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::API
 
-@@secret = Rails.application.credentials.auth_secret
+# @@secret = Rails.application.credentials.auth_secret
 
   def issue_token(payload)
-    JWT.encode(payload, @@secret)
+    JWT.encode(payload,'secret_for_github')
   end
 
   def decode_token
-    
+
     if get_token
-        JWT.decode(get_token, @@secret)[0]
+        JWT.decode(get_token, 'secret_for_github')[0]
     end
   end
 
