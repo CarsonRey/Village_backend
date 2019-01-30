@@ -13,8 +13,9 @@ class Api::V1::HoursController < ApplicationController
     end
   end
 
-  def get_user_hours
-    @user_hours = Hour.where(u)
+  def destroy
+    @hour = Hour.find(params[:id])
+    @hour.destroy
   end
 
   private
