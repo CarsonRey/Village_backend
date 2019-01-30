@@ -1,5 +1,10 @@
 # Role.destroy.all
 # User.destroy.all
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    days.each do |day|
+      Day.create(name: "#{day}")
+    end
 
     roles = ["Donator", "Deliverer", "Receiver"]
 
