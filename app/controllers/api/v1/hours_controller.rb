@@ -13,6 +13,8 @@ class Api::V1::HoursController < ApplicationController
     end
   end
 
+  # write a find or create by method for create
+
   def destroy
     @hour = Hour.find(params[:id])
     @hour.destroy

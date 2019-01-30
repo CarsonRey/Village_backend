@@ -19,7 +19,7 @@
     User.create(name: "#{restaurant[:name]}", email: "#{email}@village.com", password: "bluecheese", address: restaurant[:address] , role: Role.find_by(name: "Donator"))
   end
 
-   shelters = [{name: "HRA Men's Shelter", address: "80 Delancey St, New York, NY 10002" }, {name: "New York City Rescue Mission", address: "2 Pennsylvania Plaza, New York, NY 10121"}, {name: "Covenant House New York", address: " 155 W 51st St, New York, NY 10019" },{name: "Nazareth Housing", address: "50 Broadway, New York, NY 10004" },{name: "Samaritan Village", address: "225 E 53rd St, New York, NY 10022" }]
+   shelters = [{name: "HRA Men's Shelter", address: "80 Delancey St, New York, NY 10002" }, {name: "New York City Rescue Mission", address: "2 Pennsylvania Plaza, New York, NY 10121"}, {name: "Covenant House New York", address: "155 W 51st St, New York, NY 10019" },{name: "Nazareth Housing", address: "50 Broadway, New York, NY 10004" },{name: "Samaritan Village", address: "225 E 53rd St, New York, NY 10022" }]
 
   shelters.each do |shelter|
     email = shelter[:name].split(" ").join("_")
