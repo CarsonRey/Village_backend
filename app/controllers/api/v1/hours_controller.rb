@@ -7,13 +7,16 @@ class Api::V1::HoursController < ApplicationController
 
 
   def create
-    @hour = Hour.new(hour_params)
-    if @hour.save
+    if Hour.where(time_range: hour_params[:time_range])
+      @hour = Hour.where(time_range: hour_params[:time_range])
       render json: @hour
+    else
+      @hour = Hour.new(hour_params)
+      if @hour.save
+        render json: @hour
+      end
     end
   end
-
-  # write a find or create by method for create
 
   def destroy
     @hour = Hour.find(params[:id])
