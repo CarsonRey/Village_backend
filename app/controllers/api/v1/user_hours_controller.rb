@@ -7,9 +7,7 @@ class Api::V1::UserHoursController < ApplicationController
 
 
   def create
-
     @user_hour = UserHour.new(user_hour_params)
-    byebug
     if @user_hour.save
       render json: @user_hour
     end

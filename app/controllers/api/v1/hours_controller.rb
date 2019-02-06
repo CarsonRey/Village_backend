@@ -7,9 +7,8 @@ class Api::V1::HoursController < ApplicationController
 
 
   def create
-    byebug
-    if Hour.where(time_range: hour_params[:time_range]) != []
-      @hour = Hour.where(time_range: hour_params[:time_range])
+    if Hour.where(time_range: hour_params[:time_range], day_id: hour_params[:day_id]) != []
+      @hour = Hour.where(time_range: hour_params[:time_range], day_id: hour_params[:day_id])[0]
       render json: @hour
     else
       @hour = Hour.new(hour_params)
